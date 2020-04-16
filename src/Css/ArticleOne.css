@@ -1,0 +1,88 @@
+.articleOne{
+    width: 100%;
+    min-height: 100vh;
+    float: left;
+}
+.divtitulo{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid grey;
+    box-shadow: 3px 0px 3px grey;
+    float: left;
+}
+
+.divtitulo h2{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.divContenedorArticleOne{
+    width: 100%;
+    min-height: 100vh;
+    /* background: #F2ECEB; */
+    float: left;
+}
+
+.divProducto{
+    width: 30%;
+    height: 300px;
+    margin: 10px;
+    margin-left: 2%;
+    border-radius: 5px;
+    background: #F2ECEB;
+    /* border: 1px solid grey;    */
+    box-shadow: 3px 3px 3px grey; 
+    transition: all 300ms;
+    float: left;
+}
+
+.divProducto:hover{
+    transform: scale(1.02, 1.02);
+}
+
+.divProducto img{
+    width: 70%;
+    height: 150px;
+    margin-left: 15%;
+    margin-top: 10px;
+}
+
+.divProducto h3{
+    text-align: center;
+    margin-top: 10px;
+}
+
+.divProducto p{
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+.divForm{
+    width: 100%;
+    height: 30px;
+    /* background: red; */
+    margin-top: 0.5em;
+    
+}
+
+.divForm input[type='number']{
+    border-radius: 3px;
+    border: 1px solid grey;
+    margin-left: 15%;
+    width: 40%;
+    height: 30px;
+}
+
+.divForm input[type='submit']{
+    border-radius: 5px;
+    border: 1px solid grey;
+    background: #61dafb;
+    color: white;
+    width: 30%;
+    height: 30px;
+    cursor: pointer;
+}
+
+.divForm input[type='submit']:hover{
+    background: #43ACBB;
+}
