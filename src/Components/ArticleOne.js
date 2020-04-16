@@ -47,10 +47,11 @@ class ArticleOne extends React.Component{
                     precioTotal:(parseFloat(this.state.cantidad) * parseFloat(event.target.dataset.price))
                 }
 
+                //esta funcion la hemos recibido desde section
                 const pasarAlCarrito = this.props.pasarAlCarrito
-
+                //aqui la llamamos
                 pasarAlCarrito(product);
-
+                alert('Añadido al carrito');
             // localStorage.setItem(event.target.dataset.name, JSON.stringify(product))
             // console.log(JSON.parse(localStorage.getItem(event.target.dataset.name)))
             let input = event.target.getElementsByTagName('input');

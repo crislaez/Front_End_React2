@@ -1,0 +1,57 @@
+.articlePago{
+    width: 100%;
+    min-height: 107.4vh;
+    margin-top: -50px;
+    /* background: red; */
+    background: rgba(0, 0, 0, .8);
+    /* opacity: 0; */
+    /* transition: 2000ms; */
+    position: absolute;
+}
+
+.divPagar{
+    width: 50%;
+    height: 500px;
+    margin-top: 2em;
+    border-radius: 5px;
+    background: white;
+    margin-left: 25%;
+    /* float: left; */
+}
+
+.divTituloPago{
+    width: 91%;
+    height: 50px;
+    margin-top: 5px;
+    /* background: red; */
+    float: left;
+}
+
+.divTituloPago h2{
+    text-align: center;
+    font-size: 30px;
+}
+
+.divBotonAtras{
+    width: 7%;
+    height: 50px;
+    /* background: blue; */
+    border-radius: 50px;
+    margin-top: 5px;
+    overflow: hidden;
+    box-shadow: 3px 3px 3px grey;
+    float: left;
+}
+
+.divBotonAtras input{
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    background: #D5D5D5;
+}
+
+.divBotonAtras input:hover{
+    background: #BCBCBC;
+}

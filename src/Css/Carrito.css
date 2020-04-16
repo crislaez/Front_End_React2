@@ -7,17 +7,79 @@
     transition: all 300ms;
     margin-left: 80%;
     color: white;
-    box-shadow: 7px 7px 3px grey;
+    /* box-shadow: 7px 7px 3px grey; */
     background-color: #282c34;
     overflow-y: scroll;
     border-radius: 5px;
 }
 
-.prodCarrito{
-    width: 98%;
-    height: 50px;
-    margin-left: 1%;
+.divPago{
+    width: 94%;
+    height: 70px;
+    color: black;
+    background: #F2F2F2;
+    border-radius: 5px;
+    margin-left: 3%;
+    margin-top: 10px;
+}
+
+.divPago p{
+    text-align: center;
     margin-top: 5px;
-    background: black;
+    margin-left: 25%;
     float: left;
+}
+.divPago input[type='submit']{
+    width: 80%;
+    height: 30px;
+    margin-top: 10px;
+    color: white;
+    margin-left: 10%;
+    border-radius: 5px;
+    border:none;
+    background: #61dafb;
+    cursor: pointer;
+}
+
+.prodCarrito{
+    width: 94%;
+    height: 90px;
+    margin-left: 3%;
+    margin-top: 5px;
+    color: black;
+    background: #F2F2F2;
+    border-radius: 5px;
+    float: left;
+}
+.parrafo1{
+    font-size: 12px;
+    width: 100%;
+    margin-top: 10px;
+    height: 20px;
+    margin-left: 3%;
+    float: left;
+}
+.parrafo2{
+    text-align: center;
+    font-size: 12px;
+    width: 48%;
+    margin-left: 1%;
+    float: left;
+}
+
+.prodCarrito input[type='button']{
+    width: 30%;
+    height: 30px;
+    margin-left: 3%;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background: #61dafb;
+    cursor: pointer;
+    float: left;
+}
+
+.divCarrito input:hover{
+    background: #43ACBB;
 }
