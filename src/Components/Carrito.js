@@ -21,6 +21,17 @@ class Carrito extends React.Component{
 
     componentDidMount(){
         this._isMountd = true;
+
+        //necesitamos que este escuchando, asta que se pagen los productos del carrito, y una vez pagados, se creara
+        //la varuable vaciar en el localStorage y despues vaciamos el array estado de los productos
+        setInterval(() => {
+            if(localStorage.getItem('vaciar')){
+                this._aux = []
+                this.setState({array:this._aux, aPagar:0});
+            }else{
+                console.log('Escuchando');
+            }
+        }, 1000);
     }
 
     componentDidUpdate(prevProps){
@@ -31,8 +42,12 @@ class Carrito extends React.Component{
             this._aux.push(this.props.objeto)
             //añadimos el precio del producto añadido a la variable pago auxiliar
             this._precioProducto = parseFloat(this._precioProducto) + parseFloat(this.props.objeto.precioTotal);
+            //limitamos los decimales a 2
+            this._precioProducto = this._precioProducto.toFixed(2);
             //igualamos las variables auxiliares a las variables de estado
-            this.setState({array:this._aux, aPagar:this._precioProducto})
+            this.setState({array:this._aux, aPagar:this._precioProducto});
+            //guardamos el array entero en el localStorage
+            localStorage.setItem('arrayObjetos', JSON.stringify(this._aux));
         }        
     }
 
@@ -49,17 +64,23 @@ class Carrito extends React.Component{
         //borramos el producto que hemos seleccionado del array auxiliar
         this._aux.splice(event.target.dataset.posicion,1);
         //igualamos las variables auxiliares a la variables de estado
-        this.setState({array:this._aux, aPagar:this._precioProducto})
+        this.setState({array:this._aux, aPagar:this._precioProducto});
+        //guardamos el array entero en el localStorage
+        localStorage.setItem('arrayObjetos', JSON.stringify(this._aux));
     }
 
     //evento que se activara cuado el usuario quiera pagar
     handleSubmitPago = (event) => {
         event.preventDefault();
-        console.log(event.target)
-        let confirmacion = window.confirm('Estas seguro que deseas pasar a Pago?')
+        let confirmacion = window.confirm('Estas seguro que deseas pasar a Pago?');
 
         if(confirmacion){
             if(this.state.aPagar > 0){
+                //llamamos a la funcion desde el componente Section, y le pasamos el pago
+                const pasarPago = this.props.pasarPago;
+                pasarPago(this.state.aPagar);
+
+                //llamamos a la funcion desde el componente Section para habrir la ventana de pago
                 const ventanaPago = this.props.ventanaPago;
                 ventanaPago();
             }else{
@@ -85,13 +106,13 @@ class Carrito extends React.Component{
                         <div key={key} className='prodCarrito'>
                             <p className='parrafo1'>Producto: {data.nombre}</p>
                             <p className='parrafo2'>Cantidad: {data.cantidad}</p>
-                            <p className='parrafo2'>Precio: {data.precioTotal}€</p>
+                            <p className='parrafo2'>Precio: {data.precioTotal.toFixed(2)}€</p>
                             <input data-posicion={key} type='button' value='Borrar' onClick={this.handelClick}></input>
                         </div>
                     )
                 })
                 :
-                <div>No hay nada en el carrito</div>
+                <div></div>
             }
                 
             </div>

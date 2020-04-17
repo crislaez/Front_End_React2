@@ -18,7 +18,8 @@ class Section extends React.Component{
         this.state = 
             {
                 objeto:'',
-                ventanaPago:false
+                ventanaPago:false,
+                pagoTotal:''
             }        
     }
 
@@ -53,16 +54,27 @@ class Section extends React.Component{
         this._aparecerVentana = false;
     }
 
+    //funcion para pasar el precio al componente ArticlePago
+    pasarPago = (pago) => {
+        console.log(pago)      
+        this.setState({pagoTotal:pago});
+    }
+
+    //function para vaciar el array de estado donde estan todos los productos del carrito
+    vaciarCarrito = (variable) => {
+        variable = [];
+    }
+
     render(){
         return(
             <section>
 
-                <Carrito color={this.props.ventanaCarrito} objeto={this.state.objeto} ventanaPago={this.ventanaPago}></Carrito>
+                <Carrito color={this.props.ventanaCarrito} objeto={this.state.objeto} ventanaPago={this.ventanaPago} pasarPago={this.pasarPago} ></Carrito>
             
                 {
                     this.state.ventanaPago
                     ?
-                    <ArticlePago quitarVentanaPago={this.quitarVentanaPago}></ArticlePago>
+                    <ArticlePago quitarVentanaPago={this.quitarVentanaPago} pagoTotal={this.state.pagoTotal}></ArticlePago>
                     :
                     <div></div>
                 }

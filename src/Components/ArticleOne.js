@@ -43,6 +43,7 @@ class ArticleOne extends React.Component{
                 {
                     id:event.target.dataset.id,
                     nombre:event.target.dataset.name,
+                    quantity:event.target.dataset.quantity,
                     cantidad:parseFloat(this.state.cantidad),
                     precioTotal:(parseFloat(this.state.cantidad) * parseFloat(event.target.dataset.price))
                 }

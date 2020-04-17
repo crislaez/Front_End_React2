@@ -1,12 +1,10 @@
 .articlePago{
     width: 100%;
-    min-height: 107.4vh;
+    min-height: 110vh;
     margin-top: -50px;
-    /* background: red; */
     background: rgba(0, 0, 0, .8);
-    /* opacity: 0; */
-    /* transition: 2000ms; */
     position: absolute;
+    z-index: 2;
 }
 
 .divPagar{
@@ -21,15 +19,15 @@
 
 .divTituloPago{
     width: 91%;
-    height: 50px;
-    margin-top: 5px;
+    height: 70px;
+    margin-top: 2em;
     /* background: red; */
     float: left;
 }
 
 .divTituloPago h2{
     text-align: center;
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .divBotonAtras{
@@ -54,4 +52,39 @@
 
 .divBotonAtras input:hover{
     background: #BCBCBC;
+}
+
+.articlePago form{
+    width: 90%;
+    height: 420px;
+    margin-left: 5%;
+    /* background: red; */
+    float: left;
+}
+
+.articlePago form input[type='text']{
+    width: 94%;
+    margin-left: 3%;
+    border-radius: 5px;
+    border: 1px solid grey;
+    height: 70px;
+    font-size: 30px;
+    margin-top: 1em;
+}
+
+.articlePago form input[type='submit']{
+    width: 70%;
+    height: 70px;
+    margin-left: 15%;
+    margin-top: 2em;
+    border-radius: 5px;
+    background: #61dafb;
+    color: white;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+.articlePago form input[type='submit']:hover{
+    background: #43ACBB;
 }
