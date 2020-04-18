@@ -83,7 +83,13 @@ class ArticleOne extends React.Component{
                                 <p>{data.description}</p>
                                 <form className='divForm' onSubmit={this.handleSubmit} data-quantity={data.quantity} data-price={data.price} data-id={data._id} data-name={data.name}>
                                     <input type='number' min="0" max={data.quantity} onChange={(params) => {this.setState({cantidad:params.target.value})}}></input>
-                                    <input type='submit' value='Añadir'></input>
+                                    {
+                                        data.quantity == '0'
+                                        ?
+                                        <input type='submit' value='Agotado' disabled={true} style={{background:'red'}}></input>
+                                        :
+                                        <input type='submit' value='Añadir'></input>
+                                    }
                                 </form>                                
                             </div>
                         )

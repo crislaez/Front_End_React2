@@ -40,20 +40,14 @@ class ArticlePago extends React.Component{
             //gurdamos la variable vaciar en el localStorage para vaciar el array productos del carrito
             localStorage.setItem('vaciar','vaciar');
             //y una vez se borre los productos del carrito, vaciamos la variable del localStorage
-            setTimeout(() => {
-                localStorage.removeItem('vaciar')
-            },1000);
+            localStorage.removeItem('vaciar');
             // console.log(localStorage.getItem('arrayObjetos'));
             let aux = JSON.parse(localStorage.getItem('arrayObjetos'));
             for(let valor in aux){
                 let total = 0;
-                // console.log(aux[valor].id);
-                // console.log(aux[valor].cantidad);
-                // console.log(parseInt(aux[valor].quantity));
                 total = aux[valor].quantity - aux[valor].cantidad;
-                console.log(total);
                 let datos = new URLSearchParams(`quantity=${total}`);
-
+                //aqui hacemos el fetch a la base de datos para actualizarla
                 fetch('http://localhost:3001/api/update/'+aux[valor].id,{method:'put',body:datos})
                 .then(data => data.json())
                 .then(response => {
@@ -62,8 +56,10 @@ class ArticlePago extends React.Component{
                 .catch(err => {
                     console.log(err.message);
                 })
-            }
-            //aqui hacemos el fetch a la base de datos para actualizarla
+            }  
+            
+            //recargamos la pagina
+            window.location.reload(true);
             //barramos al array de objetos del localStorage
             localStorage.removeItem('arrayObjetos');
             this.setState({nombre:'', nTargeta:''});
